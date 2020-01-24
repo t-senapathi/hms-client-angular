@@ -1,0 +1,6 @@
+<app-header></app-header>
+<br><br><div class="container">
+<button (click)="listpatient()" class="myButton">Patient</button>
+<button (click)="listdoctor()" class="myButton">Doctor</button></div><br><br>
+<app-patient *ngIf="patientshow"></app-patient>
+<app-doctor *ngIf="doctorshow"></app-doctor>

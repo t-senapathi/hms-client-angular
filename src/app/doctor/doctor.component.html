@@ -1,0 +1,7 @@
+<div class="flex-container">
+    <div *ngFor="let value of doctors" (click)="open(value.firstName,value.lastName,value.username,value.doctorSpecialisation)">
+        <img src="https://randomuser.me/api/portraits/men/{{getRandomNumber()}}.jpg">
+        <div>{{value.firstName}}<br><br> {{value.doctorSpecialisation}}</div>
+    </div>
+    </div>
+    
