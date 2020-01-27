@@ -1,7 +1,41 @@
+<br />
+<div class="row">
+  <div class="col-md-5">
+    <button class="btn btn-success" (click)="selectedDoctor = !selectedDoctor">
+      New Doctor
+    </button>
+    <hr />
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-5">
+    <app-doctorlist (doctorSelected)="selectedDoctor = $event"></app-doctorlist>
+  </div>
+  <div class="col-md-7">
+    <br />
+    <app-doctordetail
+      *ngIf="selectedDoctor"
+      [doctor]="selectedDoctor"
+    ></app-doctordetail>
+    <app-createdoctor *ngIf="!selectedDoctor"></app-createdoctor>
+  </div>
+</div>
+
+<!-- <div class=container>
+    <button type="button" class="btn btn-success">Create</button><br>
+
 <div class="flex-container">
-    <div *ngFor="let value of doctors" (click)="open(value.firstName,value.lastName,value.username,value.doctorSpecialisation)">
-        <img src="https://randomuser.me/api/portraits/men/{{getRandomNumber()}}.jpg">
-        <div>{{value.firstName}}<br><br> {{value.doctorSpecialisation}}</div>
+    <div *ngFor="let value of doctors">
+        <div class="card" style="width: 10rem;">
+            <img class="card-img-top" src="https://randomuser.me/api/portraits/men/{{getRandomNumber()}}.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{value.firstName}}</h5>
+              <p class="card-text"> {{value.doctorSpecialisation}}</p>
+              <button type="button" (click)="open(value.firstName,value.lastName,value.username,value.doctorSpecialisation)" class="btn btn-primary">Details</button>
+            </div>
+          </div>
     </div>
     </div>
-    
+</div>
+     -->

@@ -1,0 +1,84 @@
+<div style="background-color: white; padding: 20px; border-radius: 8px;">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Create Doctor</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            #username
+            class="form-control"
+            id="username"
+            placeholder="username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            #password
+            class="form-control"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            #firstName
+            placeholder="First Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            #lastName
+            placeholder="Last Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input
+            type="number"
+            #age
+            class="form-control"
+            id="age"
+            placeholder="Age"
+          />
+        </div>
+        <div class="form-group">
+          <label for="doctorSpecialisation">Specialisation</label>
+          <input
+            type="text"
+            class="form-control"
+            id="doctorSpecialisation"
+            #doctorSpecialisation
+            placeholder="Specialisation"
+          />
+        </div>
+        <div class="form-group">
+          <label for="experience">Experience</label>
+          <input
+            type="number"
+            class="form-control"
+            #experience
+            id="experience"
+            placeholder="Experience"
+          />
+        </div>
+        <button (click)=create(username.value,password.value,firstName.value,lastName.value,age.value,doctorSpecialisation.value,experience.value) class="btn btn-primary">Create</button>
+      </form>
+    </div>
+  </div>
+</div>

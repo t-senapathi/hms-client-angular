@@ -15,6 +15,9 @@ import {HttpClientModule,HTTP_INTERCEPTORS,HttpHeaders} from '@angular/common/ht
 import { CrudService } from './crud.service';
 import { DoctorComponent,NgbdModalContent } from './doctor/doctor.component';
 import { PatientComponent } from './patient/patient.component';
+import { DoctorlistComponent } from './doctor/doctorlist/doctorlist.component';
+import { DoctordetailComponent } from './doctor/doctordetail/doctordetail.component';
+import { CreatedoctorComponent } from './doctor/createdoctor/createdoctor.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { PatientComponent } from './patient/patient.component';
     UserComponent,
     NgbdModalContent,
     DoctorComponent,
-    PatientComponent
+    PatientComponent,
+    DoctorlistComponent,
+    DoctordetailComponent,
+    CreatedoctorComponent
   ],
   imports: [
     BrowserModule,

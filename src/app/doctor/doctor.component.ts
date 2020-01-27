@@ -43,32 +43,12 @@ export class NgbdModalContent implements OnInit {
   styleUrls: ['./doctor.component.scss']
 })
 export class DoctorComponent implements OnInit {
-
-  constructor(private modalService: NgbModal,private crudService : CrudService) {}
-  private doctors :Doctor[];
-  private request:CustomRequest<Doctor>;
-  private isPageLoaded = false;
-
+  selectedDoctor:Doctor;
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit() {
-    this.crudService.getAllDoctors().subscribe((data)=>{
-      this.request= data;
-      this.doctors = this.request.data;
-      console.log(this.doctors);
-      this.isPageLoaded = true;
-    })
   }
-  open(firstname:string,lastname:string,
-    username:string,specialisation:string,) {
-    const modalRef = this.modalService.open(NgbdModalContent);
-    modalRef.componentInstance.firstName = firstname;
-    modalRef.componentInstance.lastName = lastname;
-    modalRef.componentInstance.username = username;
-    modalRef.componentInstance.specialisation = specialisation;
-  }
-  getRandomNumber() {
-    return Math.floor(Math.random() * 100 + 1);
-  }
+  
 
 }
 
