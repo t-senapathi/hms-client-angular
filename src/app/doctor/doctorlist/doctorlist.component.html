@@ -1,20 +1,19 @@
 <br />
-<div class="row">
+<div class="row" style="overflow-y:auto; height: 400px;">
   <div class="col-md-12">
     <a (click)="onSelected(doctor)" class="list-group-item clearfix" style="cursor: pointer;" *ngFor="let doctor of doctors">
+     <span class="col-md-4" style="float:left;"><img
+      src="../../assets/image.png"
+      alt="{{ doctor.name }}"
+      class="img-responsive"
+      style="max-height: 70px;"
+    /></span>
       <div class="pull-left" style="display:inline-block;color:black;">
         <h4 class="list-group-item-heading">{{ doctor.firstName }}</h4>
         <p class="list-group-item-text">{{ doctor.doctorSpecialisation }}</p>
       </div>
       <span style="float:right;">
-        <img
-          src="https://randomuser.me/api/portraits/men/{{
-            getRandomNumber()
-          }}.jpg"
-          alt="{{ doctor.name }}"
-          class="img-responsive"
-          style="max-height: 70px;"
-        />
+        <button (click)="deleteDoctor(doctor)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
       </span>
     </a>
   </div>

@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent} from './dashboard/user/user.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { UserserviceService } from './userservice.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule,HTTP_INTERCEPTORS,HttpHeaders} from '@angular/common/http';
@@ -38,7 +38,8 @@ import { CreatedoctorComponent } from './doctor/createdoctor/createdoctor.compon
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [UserserviceService,CrudService],
   bootstrap: [AppComponent],

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 import { CrudService } from "src/app/crud.service";
 import { CustomRequest } from "src/app/customrequest";
 import { Doctor } from "src/app/doctor";
@@ -10,18 +10,29 @@ import { Doctor } from "src/app/doctor";
 })
 export class DoctorlistComponent implements OnInit {
   constructor(private crudService: CrudService) {}
-  private doctors: Doctor[];
+  public doctors: Doctor[];
   private request: CustomRequest<Doctor>;
   private isPageLoaded = false;
   @Output() doctorSelected = new EventEmitter<Doctor>();
-
   ngOnInit() {
+   this.getAllDoctor();
+  }
+  getAllDoctor(){
     this.crudService.getAllDoctors().subscribe(data => {
       this.request = data;
       this.doctors = this.request.data;
       console.log(this.doctors);
       this.isPageLoaded = true;
     });
+  }
+  deleteDoctor(doctor:Doctor){
+    this.crudService
+        .deleteDoctor(doctor)
+        .subscribe(data => {
+          this.request = data;
+          this.getAllDoctor();
+          console.log(this.request.data);
+        });
   }
   onSelected(doctor:Doctor) {
     this.doctorSelected.emit(doctor);

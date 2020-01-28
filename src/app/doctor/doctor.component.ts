@@ -44,6 +44,7 @@ export class NgbdModalContent implements OnInit {
 })
 export class DoctorComponent implements OnInit {
   selectedDoctor:Doctor;
+  createdDoctor:Doctor;
   constructor(private modalService: NgbModal) {}
 
   ngOnInit() {
