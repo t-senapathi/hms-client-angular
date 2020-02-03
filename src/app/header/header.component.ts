@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserserviceService } from '../userservice.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { NgClass } from '@angular/common';
 
@@ -10,15 +9,15 @@ import { NgClass } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private userservice:UserserviceService,private dashboardComponent:DashboardComponent) { }
+  constructor(private dashboardComponent:DashboardComponent) { }
 
   name:string;
  
   ngOnInit() {
-    this.name="sena";//this.userservice.name;
+    this.name="sena";
   }
-  listdoctor(){
-    this.dashboardComponent.listdoctor();
+  showdoctor(){
+    this.dashboardComponent.showdoctor();
 
   }
 

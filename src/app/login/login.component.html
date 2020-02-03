@@ -1,10 +1,25 @@
 <app-header></app-header>
-<form >
-    <div class="containers">
-      <br><br><img src="../../assets/person.png" width="100px" height="100px"><br><br>
-      <input type="text" [(ngModel)]="name" placeholder="username" name="username" required><br><br>
-      <input type="password" placeholder="Password" name="psw" required><br><br>
+<form>
+  <div class="logincontainer">
+    <br /><br /><img
+      src="../../assets/person.png"
+      width="100px"
+      height="100px"
+    /><br /><br />
+    <input
+      type="text"
+      [(ngModel)]="name"
+      placeholder="username"
+      name="username"
+      required
+    /><br /><br />
+    <input
+      type="password"
+      placeholder="Password"
+      name="psw"
+      required
+    /><br /><br />
 
-      <button  class="registerbtn" (click)="login()">Login</button>
-    </div>
-  </form>
+    <button class="btn btn-danger btn-lg" (click)="login()">Login</button>
+  </div>
+</form>

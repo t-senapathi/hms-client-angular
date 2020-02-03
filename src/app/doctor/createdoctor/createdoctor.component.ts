@@ -17,6 +17,8 @@ import { forbiddenPasswordValidator } from "../FormValidators";
 export class CreatedoctorComponent implements OnInit {
   @Output() doctorCreated = new EventEmitter();
   createStatus: boolean = false;
+  errBlock:boolean=false;
+  errorMsg:string; 
   doctor: Doctor;
   CreateForm: FormGroup;
   constructor(
@@ -53,6 +55,9 @@ export class CreatedoctorComponent implements OnInit {
       this.doctorCreated.emit(null);
       this.createStatus = true;
       console.log(this.request.data);
+    },error=>{
+      this.errBlock=true;
+      this.errorMsg=error;
     });
   }
 }

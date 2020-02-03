@@ -1,95 +1,102 @@
 <div style="background-color: white; padding: 20px; border-radius: 8px;">
   <div class="row">
     <div class="col-md-9">
-      <h1>Details</h1>
+      <h1>
+        <img src="../../assets/doctor1.png" height="50px" width="50px" />
+        Details
+      </h1>
     </div>
     <div class="col-md-3">
-      <button class="btn btn-primary" (click)="update = !update"><i class="fas fa-user-edit"></i> Update</button>
+      <button class="btn btn-primary" (click)="update = !update">
+        <i class="fas fa-user-edit"></i> Update
+      </button>
     </div>
-    <!-- <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle"id="dropdownMenu">
-          Manage Doctor <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role='menu'aria-labelledby="dropdownMenu">
-          <li><a (click)="update = true">Edit Doctor</a></li>
-          <li><a>Delete Doctor</a></li>
-        </ul>
-      </div> -->
+    <hr />
   </div>
   <br />
   <div class="row">
     <div class="col-md-12">
       <form [formGroup]="UpdateForm">
-      <table class="table">
-        <tr>
-          <th scope="row">1</th>
-          <th>User Id</th>
-          <td>{{ doctor.pkUserId }}</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <th>First Name</th>
-          <td>{{ doctor.firstName }}</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <th>Last Name</th>
-          <td>{{ doctor.lastName }}</td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <th>Username</th>
-          <td>{{ doctor.username }}</td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <th>Age</th>
-          <td *ngIf="update; else displayage">
-            <input
-              type="number"
-              formControlName="age"
-              class="form-control"
-            />
-          </td>
-          <ng-template #displayage>
-            <td>{{ doctor.age }}</td></ng-template
-          >
-        </tr>
-        <tr>
-          <th scope="row">6</th>
-          <th>Specialisation</th>
-          <td *ngIf="update; else displayspecialisation">
-            <input
-              type="text"
-              formControlName="doctorSpecialisation"
-              class="form-control"
-            />
-          </td>
-          <ng-template #displayspecialisation>
-            <td>{{ doctor.doctorSpecialisation }}</td></ng-template
-          >
-        </tr>
-        <tr>
-          <th scope="row">7</th>
-          <th>Experience</th>
-          <td *ngIf="update; else displayexperience">
-            <input
-              type="number"
-              formControlName="experience"
-              class="form-control"
-            />
-          </td>
-          <ng-template #displayexperience>
-            <td>{{ doctor.experience }}</td></ng-template
-          >
-        </tr>
-      </table>
-    </form>
+        <table class="table">
+          <tr>
+            <th scope="row">1</th>
+            <th>User Id</th>
+            <td>{{ doctor.pkUserId }}</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <th>First Name</th>
+            <td>{{ doctor.firstName }}</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <th>Last Name</th>
+            <td>{{ doctor.lastName }}</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <th>Username</th>
+            <td>{{ doctor.username }}</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <th>Age</th>
+            <td *ngIf="update; else displayage">
+              <input type="number" formControlName="age" class="form-control" />
+            </td>
+            <ng-template #displayage>
+              <td>{{ doctor.age }}</td></ng-template
+            >
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <th>Specialisation</th>
+            <td *ngIf="update; else displayspecialisation">
+              <input
+                type="text"
+                formControlName="doctorSpecialisation"
+                class="form-control"
+              />
+            </td>
+            <ng-template #displayspecialisation>
+              <td>{{ doctor.doctorSpecialisation }}</td></ng-template
+            >
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <th>Experience</th>
+            <td *ngIf="update; else displayexperience">
+              <input
+                type="number"
+                formControlName="experience"
+                class="form-control"
+              />
+            </td>
+            <ng-template #displayexperience>
+              <td>{{ doctor.experience }}</td></ng-template
+            >
+          </tr>
+        </table>
+      </form>
 
-      <button *ngIf="update" class="btn btn-success" (click)="updateDoctor()">Save</button>
-      <div *ngIf="updateStatus" class="alert alert-success alert-dismissible fade show" role="alert">Update Success!<button type="button" (click)="updateStatus=false;"class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button></div>
+      <button *ngIf="update" class="btn btn-success" (click)="updateDoctor()">
+        Save
+      </button>
+      <div
+        *ngIf="updateStatus"
+        class="alert alert-success alert-dismissible fade show"
+        role="alert"
+      >
+        Update Success!<button
+          type="button"
+          (click)="updateStatus = false"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>

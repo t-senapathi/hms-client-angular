@@ -1,13 +1,16 @@
 <div style="background-color: white; padding: 20px; border-radius: 8px;">
   <div class="row">
     <div class="col-md-12">
-      <h1><i class="fas fa-user-md"></i> Create Doctor </h1>
+      <h1>
+        <img src="../../assets/doctor.png" height="55px" width="55px" /> Create
+        Doctor
+      </h1>
+      <hr />
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
       <form [formGroup]="CreateForm">
-        {{CreateForm.status}}
         <div class="form-group">
           <label for="username">Username</label>
           <input
@@ -27,18 +30,20 @@
             placeholder="Password"
           />
         </div>
-        <div *ngIf="password.invalid && (password.dirty || password.touched)"
-        class="alert alert-danger">
-        <div *ngIf="form.password.hasError('passworderror')">
-          password cannot be same as username.
+        <div
+          *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="form.password.hasError('passworderror')">
+            password cannot contain username value.
+          </div>
+          <div *ngIf="password.errors.required">
+            password is required.
+          </div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 8 characters long.
+          </div>
         </div>
-      <div *ngIf="password.errors.required">
-        password is required.
-      </div>
-      <div *ngIf="password.errors.minlength">
-        Password must be at least 8 characters long.
-      </div>
-    </div>
         <div class="form-group">
           <label for="firstName">First Name</label>
           <input
@@ -89,11 +94,30 @@
             placeholder="Experience"
           />
         </div>
-        <button (click)="create()" class="btn btn-primary" [disabled]="!CreateForm.valid">Create</button>
-      </form>
-      <div *ngIf="createStatus" class="alert alert-success alert-dismissible fade show" role="alert">Create Success!<button type="button" (click)="updateStatus=false;"class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button></div>
+        <button
+          (click)="create()"
+          class="btn btn-primary"
+          [disabled]="!CreateForm.valid"
+        >
+          Create
+        </button>
+      </form><br>
+      <div *ngIf="errBlock" class="alert alert-danger">{{errorMsg}}</div>
+      <div
+        *ngIf="createStatus"
+        class="alert alert-success alert-dismissible fade show"
+        role="alert"
+      >
+        Create Success!<button
+          type="button"
+          (click)="updateStatus = false"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>

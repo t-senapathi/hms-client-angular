@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from '../userservice.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,7 @@ import { UserserviceService } from '../userservice.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userservice:UserserviceService,private route:ActivatedRoute,private router:Router) { }
 
   patientshow:boolean=false;
   doctorshow:boolean=false;
@@ -25,10 +26,9 @@ export class DashboardComponent implements OnInit {
     
   }
 
-  listdoctor()
+  showdoctor()
   {
-    this.patientshow=false;
-    this.doctorshow=true;
+    this.router.navigate(['doctor'],{relativeTo:this.route});
    
   }
 

@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable, throwError } from "rxjs";
+import { catchError } from 'rxjs/operators';
 import { Doctor } from "./doctor";
 import { CustomRequest } from "./customrequest";
 @Injectable({
@@ -10,14 +11,14 @@ export class CrudService {
   private id: number;
   private url = "http://localhost:8080";
   public getAllDoctors = (): Observable<CustomRequest<Doctor>> => {
-    return this.http.get<CustomRequest<Doctor>>(`${this.url}/doctor/all`);
+    return this.http.get<CustomRequest<Doctor>>(`${this.url}/doctor/all`).pipe(catchError(this.handleError));
   };
   public createDoctor = (doctor: Doctor): Observable<CustomRequest<Doctor>> => {
     console.log(doctor);
     return this.http.post<CustomRequest<Doctor>>(
       `${this.url}/doctor/create`,
       doctor
-    );
+    ).pipe(catchError(this.handleError));
   };
   public updateDoctor = (doctor: Doctor): Observable<CustomRequest<Doctor>> => {
     console.log(doctor);
@@ -33,6 +34,10 @@ export class CrudService {
       `${this.url}/doctor/delete/` + this.id
     );
   };
+
+  private handleError(errorResponse:HttpErrorResponse){
+    return throwError(errorResponse.error);
+  }
   public getAllPatients = () => {
     return this.http.get(`${this.url}/patients/all`);
   };
